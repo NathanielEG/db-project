@@ -185,14 +185,3 @@ $db->query('INSERT INTO wishForAccessories(userID, productID, priority) values (
 $db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("6","accessories12", 4);');
 $db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("7","accessories5", 3);');
 
-
-// $statement = $db->prepare($query);
-// $statement->execute();
-
-// foreach($movies as $movie) {
-
-//     $stmt->bind_param("sssi", $movie["title"], $movie["genre"], $movie["poster"], $movie["rating"]);
-//     $stmt->execute();
-//     // $db->query("insert into project_movies (title, genre, poster, rating) values (?, ?, ?, ?);", 
-//     // "sssi", $movie["title"], $movie["genre"], $movie["poster"], $movie["rating"]);
-// }

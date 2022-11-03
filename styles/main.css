@@ -81,13 +81,13 @@ table.list {
     margin: 40px;
 }
 
-/* Resize images in "My Movie List" Page */
+/* Resize images in "Wishlist" Page */
 .list_images {
     width: 130px;
     height: 180px;
 }
 
-/* Align text and images at the middle of the vertical axis for movie list*/
+/* Align text and images at the middle of the vertical axis for wishlist*/
 td {
     vertical-align: middle;
 }

@@ -4,8 +4,8 @@
         <meta charset="UTF-8">  
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Alex Chan (ac5ug) and Nathaniel Gonzalez (neg2mhs)">
-        <meta name="description" content="MyMovieList Login Screen">  
-        <title>MyMovieList Login</title>
+        <meta name="description" content="NAC Login Screen">  
+        <title>NAC Login</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
     
         <style>
@@ -27,23 +27,9 @@
         
     </head>
     <body>
-        <video
-            id="videobcg"
-            preload="auto"
-            autoplay="true"
-            loop="loop"
-            muted="muted"
-            volume="0"
-        >
-            <source
-            src="images/movie.mp4"
-            type="video/mp4"
-            />
-            Sorry, your browser does not support HTML5 video.
-        </video>
         <div class="container" style="margin-top: 15px;" z-index="900">
             <div class="row col-xs-8 text-secondary">
-                <p> Welcome to MyMovieList!  To get started, enter a name, email, and password.</p>
+                <p> Welcome to NAC!  To get started, enter a name, email, and password.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-4">
