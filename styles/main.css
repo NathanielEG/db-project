@@ -1,0 +1,161 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+/* 
+    Authors: Alex Chan, Nathaniel Gonzalez, & Cory Ooten
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.sidebar {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    padding: 50px 0;
+}
+
+a.highlight:hover {
+    background: yellow;
+}
+
+a.highlight:active {
+    color:red;
+}
+
+/* push home page sections to the right to space from sidebar */
+.home_sections {
+    margin-left:250px; 
+}
+
+/* My Move List table margins and spacing on page */
+table.list {
+    width: 90%;
+    margin: 40px;
+}
+
+/* Resize images in "My Movie List" Page */
+.list_images {
+    width: 130px;
+    height: 180px;
+}
+
+/* Align text and images at the middle of the vertical axis for movie list*/
+td {
+    vertical-align: middle;
+}
+
+tbody .border-bot{
+    border-bottom: 1px solid #ffffff;
+}
+
+div .padding-top{
+    padding-top: 10px;
+}
+
+.pop {
+    transition: 1s;
+}
+
+.pop:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 5px 2px rgb(194, 241, 194);
+    z-index: 2;
+}
+
+.text-lime {
+    color: rgb(114, 202, 114);
+}
+
+[class*="col-"] {
+    float: left;
+    width: 100%; /* mobile first - 100% width */
+}
+
+
+
+
+/* For large enough screens, use 12-column grid */
+@media only screen and (min-width: 768px) {
+    .row {
+        width: 100%;
+    }
+
+    .col-12 {
+        width: 100%;
+        margin-bottom: 50px;
+    }
+
+    .col-8 {
+        width: 66.66%;
+        margin-bottom: 50px;
+    }
+
+    .col-4 {
+        width: 33.33%;
+        margin-bottom: 50px;
+    }
+
+	.col-3 {
+		width: 25%;
+		margin-bottom: 50px;
+	}
+
+    .col-2 {
+        width: 16.66%;
+        margin-bottom: 50px;
+    }
+
+	.col-1 {
+		width: 8.33%;
+		margin-bottom: 50px;
+	}
+
+}
