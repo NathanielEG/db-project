@@ -3,9 +3,9 @@
 
 class Config {
     public static $db = [
-        "host" => "localhost:3306",
-        "user" => "ngonz",
-        "pass" => "Nopass1!",
+        "host" => "localhost",
+        "user" => "root",
+        "pass" => "",
         "database" => "db-project"
     ];
 }
