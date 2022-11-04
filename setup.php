@@ -148,14 +148,16 @@ $db->query('INSERT INTO accessories (productID, name, imageID, primaryColor, gen
 $db->query('INSERT INTO accessories (productID, name, imageID, primaryColor, gender, price, brand, type) values ("accessory12", "Sonic The Hedgehog Interactive Watch", "https://target.scene7.com/is/image/Target/GUEST_00456e7b-f34d-466f-a85f-5318058165e9?qlt=85&fmt=webp&hei=199&wid=199", "blue", "K", 35.00, "target", "watch");');
 
 # Insert data into users table
-$db->query('INSERT INTO users (name, email, password) values ("Same","example@gmail.com","exam123");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","upsorn@outlook.com","abc123");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","spongebob2@yahoo.com","iluvpatrick");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","elmo@gmail.com","SesameStr");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","mickey@gmail.com","clubhouse54");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","epicwarrior111@gmail.com","123four");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","lawnmowerdad@gmail.com","G01f");');
-$db->query('INSERT INTO users (name, email, password) values ("Same","darthvader@outlook.com","the4ce");');
+$pass1 = password_hash('iluvPatrick&2', PASSWORD_DEFAULT);
+$pass2 = password_hash('Sesame5tr1!', PASSWORD_DEFAULT);
+$pass3 = password_hash('Clubhouse541!', PASSWORD_DEFAULT);
+$pass4 = password_hash('G01fisC001!', PASSWORD_DEFAULT);
+$pass5 = password_hash('The4ce!!!', PASSWORD_DEFAULT);
+$db->query("INSERT INTO users (name, email, password) values ('Spongebob','spongebob2@yahoo.com','$pass1');");
+$db->query("INSERT INTO users (name, email, password) values ('Elmo','elmo@gmail.com','$pass2');");
+$db->query("INSERT INTO users (name, email, password) values ('Mickey','mickey@gmail.com','$pass3');");
+$db->query("INSERT INTO users (name, email, password) values ('Clark','lawnmowerdad@gmail.com','$pass4');");
+$db->query("INSERT INTO users (name, email, password) values ('Vader','darthvader@outlook.com','$pass5');");
 
 # Insert data into wishlists table
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("1","tops1", 3);');
