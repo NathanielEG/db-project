@@ -16,6 +16,16 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
+        <style>
+          tr {
+            border-bottom: 1px solid #ffffff;
+          }
+          .hover{
+            color:red;
+            cursor:pointer;
+          }
+        </style>
+
         <script>
           function confirmLogout() {
             let text = "Are you sure you want to logout?";
@@ -63,7 +73,7 @@
           </nav> 
           
           
-        <!--Table used to create list of Movies-->
+        <!--Table used to create list of clothing Items-->
         <div class="table-responsive">
             <table class="table list text-light" id="wishlist_table">
                 <thead>
@@ -73,18 +83,14 @@
                         <th scope="col">Article Name</th>
                         <th scope="col">Gender</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Priority</th>
                         <th scope="col">Remove</th>
                     </tr>
                 </thead>
             </table>
         </div>
 
-        <?php
-        var_dump($my_wishlist_accessories_data);
-        var_dump($_SESSION["user id"]);
-        ?>
-
-        <!--Error message if ajax doesn't load json of movielist data-->
+        <!--Error message if ajax doesn't load json of wishlist data-->
         <div id="ajax_error_msg"></div>
 
         <!--Footer Element-->
@@ -123,7 +129,7 @@
 
             ajax.addEventListener("error", function() {
               document.getElementById("ajax_error_msg").innerHTML =
-              "<div class='alert alert-danger'>An error loading movie json data via ajax occured. In getItems()</div>";
+              "<div class='alert alert-danger'>An error loading wishlist json data via ajax occured. In getItems()</div>";
             });
 
           }
@@ -150,10 +156,10 @@
               newCell.innerHTML = `<td>${item['gender']}</td>`;
 
               newCell = newRow.insertCell(4); // fifth cell
-              newCell.innerHTML = `<td>${item['price']}</td>`;
+              newCell.innerHTML = `<td>$${item['price'].toFixed(2)}</td>`;
 
               newCell = newRow.insertCell(5); // sixth cell
-              var sel = `<select name='option_rating' aria-label='priority' id='${index}sel' class='form-select' style='width:45%'>`;
+              var sel = `<select name='option_rating' aria-label='priority' id='${index}sel' class='form-select' style='width:70%'>`;
               var options = "";
               for(let i = 1; i < 6; i++){
                 if(i === item['priority']){
@@ -167,7 +173,7 @@
               newCell.innerHTML = `<td>${sel}${options}${sel_closing}<br>${button}</td>`;
 
               newCell = newRow.insertCell(6); // seventh cell
-              newCell.innerHTML = `<td><button type='submit' class='btn btn-primary btn-xs' name='remove_movie' value='${item['productID']}'>Delete Entry</button></td>`;
+              newCell.innerHTML = `<td><button type='submit' class='btn btn-primary btn-xs' name='remove_item' value='${item['productID']}'>Delete Entry</button></td>`;
 
               cnt += 1;
             });
@@ -188,7 +194,7 @@
                 
                 $(`tr#${index}`).remove();
 
-                let btnValue = this.value; // try using 'element' if 'this' doesn't work -- value should store movie id (unique)
+                let btnValue = this.value; // try using 'element' if 'this' doesn't work -- value should store product id (unique)
                 $.post("?command=remove_item", {
                   btnValue: btnValue
                 }); 
@@ -210,7 +216,7 @@
 
                 let selValue = $(`#${index}sel`).val();
                 let option_id = this.value;
-                $.post("?command=update_rating", {
+                $.post("?command=update_priority", {
                   selValue: selValue,
                   option_id: option_id
                 });

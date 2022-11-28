@@ -35,7 +35,7 @@ class ClothingSiteController {
             case "remove_item":
                 $this->removeItem();
                 break;
-            case "update_rating":
+            case "update_priority":
                 $this->updateRating();
                 break;
             case "logout":
@@ -224,7 +224,7 @@ class ClothingSiteController {
         $json_variable = json_encode($this->db->query("select productID, name, imageID, gender, price, userID, priority from wishForAccessories natural join accessories where userID = ?
                                                 union select productID, name, imageID, gender, price, userID, priority from wishForBottoms natural join bottoms where userID = ?
                                                 union select productID, name, imageID, gender, price, userID, priority from wishForTops natural join tops where userID = ?;", 
-                                                "iii", $_SESSION["user id"], $_SESSION["user id"], $_SESSION["user id"], JSON_PRETTY_PRINT));
+                                                "iii", $_SESSION["user id"], $_SESSION["user id"], $_SESSION["user id"]), JSON_PRETTY_PRINT);
 
         header("Content-type: application/json");
         echo $json_variable;

@@ -163,27 +163,29 @@ $db->query("INSERT INTO users (name, email, password) values ('Vader','darthvade
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("1","tops1", 3);');
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("2","bottoms4", 4);');
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("3","bottoms9", 2);');
-$db->query('INSERT INTO wishlists (userID, productID, priority) values ("3","accessories2", 1);');
+$db->query('INSERT INTO wishlists (userID, productID, priority) values ("3","accessory2", 1);');
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("3","tops12", 3);');
-$db->query('INSERT INTO wishlists (userID, productID, priority) values ("5","accessories12", 5);');
-$db->query('INSERT INTO wishlists (userID, productID, priority) values ("6","accessories12", 4);');
-$db->query('INSERT INTO wishlists (userID, productID, priority) values ("7","accessories5", 3);');
+$db->query('INSERT INTO wishlists (userID, productID, priority) values ("5","accessory12", 5);');
+$db->query('INSERT INTO wishlists (userID, productID, priority) values ("6","accessory12", 4);');
+$db->query('INSERT INTO wishlists (userID, productID, priority) values ("7","accessory5", 3);');
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("7","tops3", 4);');
 $db->query('INSERT INTO wishlists (userID, productID, priority) values ("8","bottoms1", 2);');
 
 # Insert data into wishForTops table
 $db->query('INSERT INTO wishForTops(userID, productID, priority) values ("1","tops1", 3);');
 $db->query('INSERT INTO wishForTops(userID, productID, priority) values ("3","tops12", 3);');
-$db->query('INSERT INTO wishForTops(userID, productID, priority) values ("7","tops3", 4);');
+$db->query('INSERT INTO wishForTops(userID, productID, priority) values ("6","tops3", 4);');
 
 # Insert data into wishForBottoms table
 $db->query('INSERT INTO wishForBottoms(userID, productID, priority) values ("2","bottoms4", 4);');
 $db->query('INSERT INTO wishForBottoms(userID, productID, priority) values ("3","bottoms9", 2);');
-$db->query('INSERT INTO wishForBottoms(userID, productID, priority) values ("8","bottoms1", 2);');
+$db->query('INSERT INTO wishForBottoms(userID, productID, priority) values ("6","bottoms1", 2);');
+$db->query('INSERT INTO wishForBottoms(userID, productID, priority) values ("6","bottoms2", 2);');
+
 
 # Insert data into wishForAccessories table
-$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("3","accessories2", 1);');
-$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("5","accessories12", 5);');
-$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("6","accessories12", 4);');
-$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("7","accessories5", 3);');
+$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("3","accessory2", 1);');
+$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("5","accessory12", 5);');
+$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("6","accessory12", 4);');
+$db->query('INSERT INTO wishForAccessories(userID, productID, priority) values ("6","accessory5", 3);');
 

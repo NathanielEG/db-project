@@ -62,12 +62,6 @@
             </div>
           </nav>        
 
-          <!--Search Bar-->
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-light" type="button">Search</button>
-          </form>
-
           <!--Scrollspy Side Navigation Bar-->
           <nav id="navbar-example3" class="navbar navbar-light bg-dark bg-gradient flex-column align-items-stretch p-3 sidebar" aria-label="nav">
             <a class="navbar-brand text-light">Sections</a>
