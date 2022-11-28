@@ -17,6 +17,15 @@ class ClothingSiteController {
             case "homepage":
                 $this->homePage();
                 break;
+            case "mens":
+                $this->mensPage();
+                break;
+            case "womens":
+                $this->womensPage();
+                break;
+            case "kids":
+                $this->kidsPage();
+                break;
             case "logout":
                 $this->destroySession();
                 break;
@@ -99,6 +108,39 @@ class ClothingSiteController {
 
 
         include("templates/home.php");
+    }
+
+    // Display men's clothing page (mens.php)
+    private function mensPage() {
+        // get list of tops, bottoms, and accessories
+        $tops = $this->db->query("select * from tops WHERE gender = 'M'");
+        $bottoms = $this->db->query("select * from bottoms WHERE gender = 'M'");
+        $accessories = $this->db->query("select * from accessories WHERE gender = 'M'");
+
+
+        include("templates/mens.php");
+    }
+
+    // Display women's clothing page (womens.php)
+    private function womensPage() {
+        // get list of tops, bottoms, and accessories
+        $tops = $this->db->query("select * from tops WHERE gender = 'F'");
+        $bottoms = $this->db->query("select * from bottoms WHERE gender = 'F'");
+        $accessories = $this->db->query("select * from accessories WHERE gender = 'F'");
+
+
+        include("templates/womens.php");
+    }
+
+    // Display men's clothing page (mens.php)
+    private function kidsPage() {
+        // get list of tops, bottoms, and accessories
+        $tops = $this->db->query("select * from tops WHERE gender = 'K'");
+        $bottoms = $this->db->query("select * from bottoms WHERE gender = 'K'");
+        $accessories = $this->db->query("select * from accessories WHERE gender = 'K'");
+
+
+        include("templates/kids.php");
     }
 
 
