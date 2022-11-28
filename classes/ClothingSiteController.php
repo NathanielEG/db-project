@@ -106,6 +106,20 @@ class ClothingSiteController {
         $bottoms = $this->db->query("select * from bottoms;");
         $accessories = $this->db->query("select * from accessories;");
 
+        // get list of items that current user has added to wishlist
+        $added_tops = $this->db->query("select productID from wishfortops where userID = ?;", "i", $_SESSION["user id"]);
+        $added_bottoms = $this->db->query("select productID from wishForBottoms where userID = ?;", "i", $_SESSION["user id"]);
+        $added_accessories = $this->db->query("select productID from wishForAccessories where userID = ?;", "i", $_SESSION["user id"]);
+        $added = array();
+        foreach ($added_tops as $top) {
+            array_push($added, $top["productID"]);
+        }
+        foreach ($added_bottoms as $bottom) {
+            array_push($added, $bottom["productID"]);
+        }
+        foreach ($added_accessories as $accessory) {
+            array_push($added, $accessory["productID"]);
+        }
 
         include("templates/home.php");
     }
@@ -138,7 +152,6 @@ class ClothingSiteController {
         $tops = $this->db->query("select * from tops WHERE gender = 'K'");
         $bottoms = $this->db->query("select * from bottoms WHERE gender = 'K'");
         $accessories = $this->db->query("select * from accessories WHERE gender = 'K'");
-
 
         include("templates/kids.php");
     }
