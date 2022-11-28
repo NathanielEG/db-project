@@ -100,12 +100,56 @@
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $top["name"];?></h5> 
                           <h5 class="card-title text-light"><?php echo '$' . number_format((float)$top["price"], 2, '.', '');?></h5> 
+
+                          <!-- Add to wishlist button -->
+                          <?php
+                            if (in_array($top["productID"], $added)) {
+                              ?>
+                                <button type="button" class="btn btn-primary" disabled>Added to Wishlist</button>
+                              <?php
+                            }
+                            else {
+                              ?>
+                              <div class="tops_add_button" value="<?php echo $top["productID"];?>">
+                                <input type="hidden" id="top_id" name="top_id" value="<?php echo $top["productID"];?>"/> 
+                                <button type="submit" id="add_top<?php echo $top["productID"];?>" name="add_top" class="btn btn-primary" value="<?php echo $top["productID"];?>">Add to Wishlist</button>
+                              </div>
+                              <?php
+                            }
+                          ?>
                         </div>
                       </div>
                     <?php
                         $count+=1;
                     }
                 ?>
+
+                <script>
+                    var top_elements = document.getElementsByClassName("tops_add_button");
+
+                    var topFunction = (event) => {
+                      let btnValue = event.target.getAttribute("value"); 
+                      let user = "<?php echo $_SESSION["user id"]; ?>";
+                      $.ajax({
+                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
+                        url: "../db-project/classes/AddItem.php", // for running locally
+                        type: "POST",
+                        dataType: "json",
+                        data: ({productID: btnValue, userID: user}),
+                      });
+
+                      var id = event.target.getAttribute("id");
+                      var button = document.getElementById(id);
+                      button.disabled = true;
+                      button.textContent = "Added to Wishlist";
+                    }
+
+                    for (var i = 0; i < top_elements.length; i++) {
+                      let button = top_elements[i].children[1];
+                      button.addEventListener("click", topFunction);
+                    }
+                    
+                </script>
             
               </section>
             </section>
@@ -130,6 +174,24 @@
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $bottom["name"];?></h5> 
                           <h5 class="card-title text-light"><?php echo '$' . number_format((float)$bottom["price"], 2, '.', '');?></h5> 
+
+                          <!-- Add to wishlist button -->
+                          <?php
+                            if (in_array($bottom["productID"], $added)) {
+                              ?>
+                                <button type="button" class="btn btn-primary" disabled>Added to Wishlist</button>
+                              <?php
+                            }
+                            else {
+                              ?>
+                              <div class="bottoms_add_button" value="<?php echo $bottom["productID"];?>">
+                                <input type="hidden" id="bottom_id" name="bottom_id" value="<?php echo $bottom["productID"];?>"/> 
+                                <button type="submit" id="add_bottom<?php echo $bottom["productID"];?>" name="add_bottom" class="btn btn-primary" value="<?php echo $bottom["productID"];?>">Add to Wishlist</button>
+                              </div>
+                              <?php
+                            }
+                          ?>
+
                         </div>
                       </div>
                     <?php
@@ -137,6 +199,33 @@
                     }
                 ?>
                 
+                <script>
+                    var bottom_elements = document.getElementsByClassName("bottoms_add_button");
+
+                    var bottomFunction = (event) => {
+                      let btnValue = event.target.getAttribute("value"); 
+                      let user = "<?php echo $_SESSION["user id"]; ?>";
+                      $.ajax({
+                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
+                        url: "../db-project/classes/AddItem.php", // for running locally
+                        type: "POST",
+                        dataType: "json",
+                        data: ({productID: btnValue, userID: user}),
+                      });
+
+                      var id = event.target.getAttribute("id");
+                      var button = document.getElementById(id);
+                      button.disabled = true;
+                      button.textContent = "Added to Wishlist";
+                    }
+
+                    for (var i = 0; i < bottom_elements.length; i++) {
+                      let button = bottom_elements[i].children[1];
+                      button.addEventListener("click", bottomFunction);
+                    }
+                    
+                </script>
+
               </section>
             </section>
             
@@ -160,6 +249,24 @@
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $accessory["name"];?></h5>
                           <h5 class="card-title text-light"><?php echo '$' . number_format((float)$accessory["price"], 2, '.', '');?></h5> 
+
+                          <!-- Add to wishlist button -->
+                          <?php
+                            if (in_array($accessory["productID"], $added)) {
+                              ?>
+                                <button type="button" class="btn btn-primary" disabled>Added to Wishlist</button>
+                              <?php
+                            }
+                            else {
+                              ?>
+                              <div class="accessories_add_button" value="<?php echo $accessory["productID"];?>">
+                                <input type="hidden" id="accessory_id" name="accessory_id" value="<?php echo $accessory["productID"];?>"/> 
+                                <button type="submit" id="add_accessory<?php echo $accessory["productID"];?>" name="add_accessory" class="btn btn-primary" value="<?php echo $accessory["productID"];?>">Add to Wishlist</button>
+                              </div>
+                              <?php
+                            }
+                          ?>
+
                         </div>
                       </div>
                     <?php
@@ -167,6 +274,33 @@
                     }
                 ?>
                 
+                <script>
+                    var accessory_elements = document.getElementsByClassName("accessories_add_button");
+
+                    var accessoryFunction = (event) => {
+                      let btnValue = event.target.getAttribute("value"); 
+                      let user = "<?php echo $_SESSION["user id"]; ?>";
+                      $.ajax({
+                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
+                        url: "../db-project/classes/AddItem.php", // for running locally
+                        type: "POST",
+                        dataType: "json",
+                        data: ({productID: btnValue, userID: user}),
+                      });
+
+                      var id = event.target.getAttribute("id");
+                      var button = document.getElementById(id);
+                      button.disabled = true;
+                      button.textContent = "Added to Wishlist";
+                    }
+
+                    for (var i = 0; i < accessory_elements.length; i++) {
+                      let button = accessory_elements[i].children[1];
+                      button.addEventListener("click", accessoryFunction);
+                    }
+                    
+                </script>
+
               </section>
             </section>
           </div>
