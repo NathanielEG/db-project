@@ -99,7 +99,7 @@
                         <img src="<?php echo $top["imageID"];?>" class="card-img-top padding-top" alt="<?php echo $top["name"];?>"> 
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $top["name"];?></h5> 
-                          
+                          <h5 class="card-title text-light"><?php echo '$' . number_format((float)$top["price"], 2, '.', '');?></h5> 
                         </div>
                       </div>
                     <?php
@@ -129,7 +129,7 @@
                         <img src="<?php echo $bottom["imageID"];?>" class="card-img-top padding-top" alt="<?php echo $bottom["name"];?>"> 
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $bottom["name"];?></h5> 
-                          
+                          <h5 class="card-title text-light"><?php echo '$' . number_format((float)$bottom["price"], 2, '.', '');?></h5> 
                         </div>
                       </div>
                     <?php
@@ -159,7 +159,7 @@
                         <img src="<?php echo $accessory["imageID"];?>" class="card-img-top padding-top" alt="<?php echo $accessory["name"];?>"> 
                         <div class="card-body">
                           <h5 class="card-title text-light"><?php echo $accessory["name"];?></h5>
-                          
+                          <h5 class="card-title text-light"><?php echo '$' . number_format((float)$accessory["price"], 2, '.', '');?></h5> 
                         </div>
                       </div>
                     <?php
