@@ -125,13 +125,13 @@
                 ?>
 
                 <script>
+                    // Add top to wishForTops table upon clicking the "Add to Wishlist" button
                     var top_elements = document.getElementsByClassName("tops_add_button");
 
                     var topFunction = (event) => {
                       let btnValue = event.target.getAttribute("value"); 
                       let user = "<?php echo $_SESSION["user id"]; ?>";
                       $.ajax({
-                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
                         url: "../db-project/classes/AddItem.php", // for running locally
                         type: "POST",
                         dataType: "json",
@@ -200,13 +200,13 @@
                 ?>
                 
                 <script>
+                    // Add bottom to wishForBottoms table upon clicking the "Add to Wishlist" button
                     var bottom_elements = document.getElementsByClassName("bottoms_add_button");
 
                     var bottomFunction = (event) => {
                       let btnValue = event.target.getAttribute("value"); 
                       let user = "<?php echo $_SESSION["user id"]; ?>";
                       $.ajax({
-                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
                         url: "../db-project/classes/AddItem.php", // for running locally
                         type: "POST",
                         dataType: "json",
@@ -275,13 +275,13 @@
                 ?>
                 
                 <script>
+                    // Add accessory to wishForAccessories table upon clicking the "Add to Wishlist" button
                     var accessory_elements = document.getElementsByClassName("accessories_add_button");
 
                     var accessoryFunction = (event) => {
                       let btnValue = event.target.getAttribute("value"); 
                       let user = "<?php echo $_SESSION["user id"]; ?>";
                       $.ajax({
-                        // url: "../project/classes/AddMovie.php", // for running on ac5ug site
                         url: "../db-project/classes/AddItem.php", // for running locally
                         type: "POST",
                         dataType: "json",
