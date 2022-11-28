@@ -85,7 +85,7 @@ class ClothingSiteController {
                         $_SESSION["name"] = $_POST["name"];
                         $_SESSION["email"] = $_POST["email"];
                         $user_id = $this->db->query("select userID from users where email = ?;", "s", $_POST["email"]);
-                        $_SESSION["user id"] = $user_id[0]["id"];
+                        $_SESSION["user id"] = $user_id[0]["userID"];
                         header("Location: ?command=homepage");
                     } else {
                         $error_msg = "Wrong password";
@@ -99,7 +99,7 @@ class ClothingSiteController {
                         $_SESSION["name"] = $_POST["name"];
                         $_SESSION["email"] = $_POST["email"];
                         $user_id = $this->db->query("select userID from users where email = ?;", "s", $_POST["email"]);
-                        $_SESSION["user id"] = $user_id[0]["id"];
+                        $_SESSION["user id"] = $user_id[0]["userID"];
                         header("Location: ?command=homepage");
                     }
                 }
@@ -119,7 +119,7 @@ class ClothingSiteController {
         $accessories = $this->db->query("select * from accessories;");
 
         // get list of items that current user has added to wishlist
-        $added_tops = $this->db->query("select productID from wishfortops where userID = ?;", "i", $_SESSION["user id"]);
+        $added_tops = $this->db->query("select productID from wishForTops where userID = ?;", "i", $_SESSION["user id"]);
         $added_bottoms = $this->db->query("select productID from wishForBottoms where userID = ?;", "i", $_SESSION["user id"]);
         $added_accessories = $this->db->query("select productID from wishForAccessories where userID = ?;", "i", $_SESSION["user id"]);
         $added = array();
