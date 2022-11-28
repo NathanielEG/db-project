@@ -80,6 +80,12 @@
           </nav>
           
           <div class="home_sections">
+
+            <div class="jumbotron">
+                <h1 class="display-3" style="color: teal">Men's Clothing</h1>
+                <hr class="my-4 text-light"> 
+            </div>  
+
             <!--Tops Section-->
             <section id="tops">
               <div class="jumbotron">
