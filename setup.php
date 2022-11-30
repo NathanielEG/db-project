@@ -63,12 +63,15 @@ $db->query("CREATE TABLE users (
                 PRIMARY KEY(userID));
             ");
 
+$db->query("ALTER TABLE users ADD CONSTRAINT checkPasswordLength CHECK (length(password)>=8);");
+
 # create wishlists table
 $db->query("drop table if exists wishlists;");
 $db->query("CREATE TABLE wishlists (
                 userID INT, 
                 productID VARCHAR(255),
                 priority INT, 
+                CONSTRAINT checkPriority CHECK (priority >= 1 AND priority <= 5),
                 PRIMARY KEY(userID, productID));  
             ");
 
@@ -78,6 +81,7 @@ $db->query("CREATE TABLE wishForTops (
                 productID VARCHAR(255),
                 userID INT NOT NULL,
                 priority INT,
+                CONSTRAINT checkPriority CHECK (priority >= 1 AND priority <= 5),
                 PRIMARY KEY(userID, productID));
             ");
 
@@ -87,6 +91,7 @@ $db->query("CREATE TABLE wishForBottoms(
                 productID VARCHAR(255),
                 userID INT NOT NULL,
                 priority INT,
+                CONSTRAINT checkPriority CHECK (priority >= 1 AND priority <= 5),
                 PRIMARY KEY(userID, productID));
             ");
 
@@ -96,6 +101,7 @@ $db->query("CREATE TABLE wishForAccessories (
                 productID VARCHAR(255),
                 userID INT NOT NULL,
                 priority INT,
+                CONSTRAINT checkPriority CHECK (priority >= 1 AND priority <= 5),
                 PRIMARY KEY(userID, productID));
             ");
 
@@ -158,6 +164,17 @@ $db->query("INSERT INTO users (name, email, password) values ('Elmo','elmo@gmail
 $db->query("INSERT INTO users (name, email, password) values ('Mickey','mickey@gmail.com','$pass3');");
 $db->query("INSERT INTO users (name, email, password) values ('Clark','lawnmowerdad@gmail.com','$pass4');");
 $db->query("INSERT INTO users (name, email, password) values ('Vader','darthvader@outlook.com','$pass5');");
+
+# Access control for users
+// $db->query("REVOKE DELETE ON dbproject.accessories FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE DELETE ON dbproject.bottoms FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE DELETE ON dbproject.tops FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE INSERT ON dbproject.accessories FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE INSERT ON dbproject.bottoms FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE INSERT ON dbproject.tops FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE UPDATE ON dbproject.accessories FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE UPDATE ON dbproject.bottoms FROM 'ngonz'@'localhost';");
+// $db->query("REVOKE UPDATE ON dbproject.tops FROM 'ngonz'@'localhost';");
 
 // # Insert data into wishlists table
 // $db->query('INSERT INTO wishlists (userID, productID, priority) values ("1","tops1", 3);');
