@@ -88,10 +88,13 @@
                     </tr>
                 </thead>
             </table>
-        </div>
-
-        <!--Error message if ajax doesn't load json of wishlist data-->
-        <div id="ajax_error_msg"></div>
+          </div>
+          
+          <!--Error message if ajax doesn't load json of wishlist data-->
+          <div id="ajax_error_msg"></div>
+          
+          <!-- Button to export wishlist to JSON -->
+          <a type='submit' class='btn btn-primary btn-xs' name='export-wishlist' id='export-wishlist'>Export Wishlist</a>
 
         <!--Footer Element-->
         <footer class="py-3 my-4">
@@ -120,10 +123,10 @@
             ajax.addEventListener("load", function () {
               if(this.status == 200){ // we properly recieved our wishlist data from our database in the form of json
                 my_wishlist_json = this.response;
-                console.log(my_wishlist_json);
                 displayItems(); // create this function
                 setClickDelete(); // keep adding button event function setters here
                 setPriorityEvent();
+                setClickDownload(my_wishlist_json);
               }
             });
 
@@ -173,23 +176,14 @@
               newCell.innerHTML = `<td>${sel}${options}${sel_closing}<br>${button}</td>`;
 
               newCell = newRow.insertCell(6); // seventh cell
-              newCell.innerHTML = `<td><button type='submit' class='btn btn-primary btn-xs' name='remove_item' value='${item['productID']}'>Delete Entry</button></td>`;
+              newCell.innerHTML = `<td><button type='submit' class='btn btn-danger btn-xs' name='remove_item' value='${item['productID']}'>Delete Entry</button></td>`;
 
               cnt += 1;
             });
           }
 
           function setClickDelete(){
-            // $(".btn-primary").hover(
-            //     function() {
-            //       $(this).text("Replaced");
-            //     }, function() {
-            //       $(this).text("Delete Entry");
-            //     }
-            //   );
-            // ABOVE HOVER IS FOR DEBUGGING PURPOSES TO SEE IF SELECTOR WORKS
-
-            $(".btn-primary").each(function(index, element){
+            $(".btn-danger").each(function(index, element){
               $(this).click(function(){
                 
                 $(`tr#${index}`).remove();
@@ -220,6 +214,16 @@
                   selValue: selValue,
                   option_id: option_id
                 });
+              });
+            });
+          }
+
+          function setClickDownload(obj){
+            $("#export-wishlist").each(function(index, element){
+              $(this).click(function(){
+                let data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+                this.setAttribute("href", "data:"+data);
+                this.setAttribute("download", "wishlist.json");
               });
             });
           }
